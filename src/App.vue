@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <hello-world @hijo-seleccionado="onHijoSeleccionado()"/>
+    <hello-world @hijo-seleccionado="onHijoSeleccionado()"/>
   </div>
 </template>
 
@@ -11,8 +11,16 @@ import HelloWorld from './components/HelloWorld.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    'hello-world':HelloWorld
+  },
+  methods:{
+    onHijoSeleccionado(){
+        for(const hijo of this.$children){
+          hijo.isSelected = false
+        }
+    }
   }
+  
 }
 </script>
 
@@ -24,5 +32,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background-color: yellow;
+  height: 98vh;
 }
 </style>
